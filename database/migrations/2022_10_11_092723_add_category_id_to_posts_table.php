@@ -10,8 +10,8 @@ class AddCategoryIdToPostsTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->foreignId('category_id')
-                ->constrained()
-                ->restrictOnDelete();
+                  ->constrained()
+                  ->restrictOnDelete();
         });
     }
 

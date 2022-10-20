@@ -1,18 +1,29 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <title>All post</title>
-  <body class="antialiased">
-    <a href="{{ route('posts.index') }}">Go to Index Page</a>
+
+@extends('layouts.app')
+
+@section('title', 'SHOW PAGE')
+
+@section('content')
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <a class="btn btn-outline-primary" href="{{ route('posts.index') }}">Go to Index Page</a>
+                    <div class="col-sm-6">
+                        <div class="card">
+                                <img src="https://avatars.mds.yandex.net/get-autoru-vos/2134119/c249134973d265a8b742308026080779/1200x900n" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h3 class="card-title">{{ $post->title }}</h3>
+                                <p class="card-text">{{ $post->content }}</p>
+                                <a href="{{route('posts.edit', $post->id)}}" class="btn btn-primary">Edit</a>
+                                @csrf
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+@endsection
 
 
-<h3>{{$post->title}}</h3>
-<p>{{ $post->content }} </p>
 
-  <a href="{{route('posts.edit', $post->id)}}">Edit</a>
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
-  </body>
-</html>

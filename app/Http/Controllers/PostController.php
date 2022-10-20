@@ -32,7 +32,7 @@ class PostController extends Controller
         ]);
 
         Post::create($validated);
-        return redirect()->route('post.index')->with('message', 'Post sohranen');
+        return redirect()->route('posts.index')->with('message', 'Post sohranen');
     }
 
     public function show(Post $post){
